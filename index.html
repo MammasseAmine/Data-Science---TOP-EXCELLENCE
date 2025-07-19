@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Data Science - TOP EXCELLENCE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+/* --- VARIABLES & RESET --- */
+:root {
+    --primary-dark: #000814;
+    --secondary-dark: #001d3d;
+    --accent-cyan: #00f5ff;
+    --accent-purple: #9d4edd;
+    --accent-orange: #ff6d00;
+    --neon-green: #39ff14;
+    --text-white: #ffffff;
+    --text-gray: #b8bcc8;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --font-tech: 'Orbitron', monospace;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--primary-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- ANIMATIONS CYBERPUNK --- */
+@keyframes neonPulse {
+    0%, 100% { text-shadow: 0 0 5px var(--accent-cyan), 0 0 10px var(--accent-cyan), 0 0 15px var(--accent-cyan); }
+    50% { text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan), 0 0 30px var(--accent-cyan); }
+}
+
+@keyframes digitalRain {
+    0% { transform: translateY(-100vh); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes hologram {
+    0%, 100% { transform: translateZ(0) rotateX(0); opacity: 0.8; }
+    50% { transform: translateZ(10px) rotateX(2deg); opacity: 1; }
+}
+
+@keyframes circuitFlow {
+    0% { stroke-dashoffset: 1000; }
+    100% { stroke-dashoffset: 0; }
+}
+
+@keyframes glitchEffect {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-2px); }
+    20% { transform: translateX(2px); }
+    30% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes dataStream {
+    0% { width: 0%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { width: 100%; opacity: 0; }
+}
+
+/* --- BACKGROUND TECH --- */
+.tech-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 98%, rgba(0, 245, 255, 0.03) 100%),
+        linear-gradient(0deg, transparent 98%, rgba(0, 245, 255, 0.03) 100%);
+    background-size: 50px 50px;
+    z-index: -2;
+    animation: glitchEffect 8s infinite;
+}
+
+.digital-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.rain-drop {
+    position: absolute;
+    color: var(--neon-green);
+    font-family: monospace;
+    font-size: 12px;
+    animation: digitalRain 4s linear infinite;
+}
+
+/* --- SECTIONS GÉNÉRALES --- */
+section {
+    padding: 120px 5%;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-family: var(--font-tech);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: neonPulse 2s ease-in-out infinite;
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    animation: dataStream 3s ease-in-out infinite;
+}
+
+.section-subtitle {
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+    color: var(--text-gray);
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+/* --- HERO SECTION FUTURISTE --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(circle at center, var(--secondary-dark) 0%, var(--primary-dark) 70%);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L50 100M0 50L100 50' stroke='%2300f5ff' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+    animation: glitchEffect 10s infinite;
+}
+
+.header-logo {
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    z-index: 10;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+    animation: hologram 4s ease-in-out infinite;
+}
+
+.header-logo img {
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 10px var(--accent-cyan));
+}
+
+.hero-content {
+    max-width: 1000px;
+    z-index: 5;
+    position: relative;
+}
+
+.hero-title {
+    font-family: var(--font-tech);
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-title .highlight {
+    color: var(--accent-cyan);
+    text-shadow: 
+        0 0 10px var(--accent-cyan),
+        0 0 20px var(--accent-cyan),
+        0 0 40px var(--accent-cyan);
+    animation: neonPulse 1.5s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.6rem;
+    color: var(--text-gray);
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 25px 55px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-tech);
+    color: var(--primary-dark);
+    background: linear-gradient(45deg, var(--accent-cyan), var(--neon-green));
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 245, 255, 0.4);
+}
+
+/* --- INTRO SECTION HOLOGRAMS --- */
+.intro-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+    position: relative;
+}
+
+.target-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+    margin-top: 100px;
+}
+
+.target-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border: 2px solid var(--accent-purple);
+    border-radius: 0;
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+    position: relative;
+    transition: all 0.5s ease;
+    animation: hologram 6s ease-in-out infinite;
+}
+
+.target-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
+    animation: dataStream 4s ease-in-out infinite;
+}
+
+.target-card:nth-child(2) { animation-delay: 1s; border-color: var(--accent-cyan); }
+.target-card:nth-child(3) { animation-delay: 2s; border-color: var(--accent-orange); }
+.target-card:nth-child(4) { animation-delay: 3s; border-color: var(--neon-green); }
+
+.target-card:nth-child(2)::before { background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); }
+.target-card:nth-child(3)::before { background: linear-gradient(90deg, transparent, var(--accent-orange), transparent); }
+.target-card:nth-child(4)::before { background: linear-gradient(90deg, transparent, var(--neon-green), transparent); }
+
+.target-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 245, 255, 0.2);
+}
+
+.target-card h3 {
+    font-family: var(--font-tech);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--text-white);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.target-card p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* --- PROGRAM SECTION TECH --- */
+.program-section {
+    background: var(--primary-dark);
+    position: relative;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 100px auto;
+}
+
+.module-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 0;
+    padding: 40px;
+    position: relative;
+    transition: all 0.4s ease;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple), var(--accent-orange), var(--neon-green));
+    z-index: -1;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.module-card:hover::before {
+    opacity: 1;
+}
+
+.module-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 245, 255, 0.3);
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.module-number {
+    font-family: var(--font-tech);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--accent-cyan);
+    background: var(--secondary-dark);
+    padding: 10px 15px;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+}
+
+.module-duration {
+    font-family: var(--font-tech);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.module-title {
+    font-family: var(--font-tech);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.module-description {
+    color: var(--text-gray);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* --- SKILLS SECTION MATRIX --- */
+.skills-section {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+    position: relative;
+}
+
+.skills-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 80px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-cluster {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border: 1px solid var(--accent-cyan);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.skill-cluster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    animation: dataStream 3s ease-in-out infinite;
+}
+
+.skill-cluster:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
+}
+
+.skill-title {
+    font-family: var(--font-tech);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    color: var(--text-gray);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-list li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--neon-green);
+}
+
+/* --- INSCRIPTION SECTION CYBER --- */
+.inscription-section {
+    background: var(--primary-dark);
+    position: relative;
+}
+
+.inscription-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M100 0L100 200M0 100L200 100' stroke='%2300f5ff' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 80px auto 0 auto;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    padding: 60px;
+    border: 3px solid var(--accent-cyan);
+    clip-path: polygon(30px 0%, 100% 0%, calc(100% - 30px) 100%, 0% 100%);
+    position: relative;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple), var(--neon-green));
+    z-index: -1;
+    clip-path: polygon(30px 0%, 100% 0%, calc(100% - 30px) 100%, 0% 100%);
+    animation: circuitFlow 3s ease-in-out infinite;
+}
+
+.form-instruction {
+    margin-bottom: 40px;
+    font-size: 1.4rem;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+.google-form-button {
+    display: inline-block;
+    padding: 25px 60px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-tech);
+    color: var(--primary-dark);
+    background: linear-gradient(45deg, var(--neon-green), var(--accent-cyan));
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+}
+
+.google-form-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    transition: left 0.6s;
+}
+
+.google-form-button:hover::before {
+    left: 100%;
+}
+
+.google-form-button:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(57, 255, 20, 0.4);
+}
+
+.form-help {
+    margin-top: 40px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* --- FOOTER CYBER --- */
+footer {
+    padding: 80px 5%;
+    text-align: center;
+    background: var(--secondary-dark);
+    color: var(--text-gray);
+    position: relative;
+    border-top: 2px solid var(--accent-cyan);
+}
+
+.footer-logo-container {
+    display: inline-block;
+    margin-top: 40px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border: 2px solid var(--neon-green);
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
+}
+
+.footer-logo-container img {
+    max-width: 200px;
+    display: block;
+    filter: drop-shadow(0 0 15px var(--neon-green));
+}
+
+footer p {
+    font-family: var(--font-tech);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .hero-title { font-size: 3.5rem; }
+    .hero-subtitle { font-size: 1.3rem; }
+    h2 { font-size: 2.5rem; }
+    
+    .header-logo {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px;
+    }
+    
+    .header-logo img { max-width: 120px; }
+    
+    .program-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .skills-matrix {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    section { padding: 80px 5%; }
+    
+    .cta-button, .google-form-button {
+        padding: 20px 40px;
+        font-size: 1.1rem;
+    }
+}
+
+/* --- EFFETS ADDITIONNELS --- */
+.cyber-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, rgba(0, 245, 255, 0.1) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, rgba(0, 245, 255, 0.1) 50%, transparent 51%);
+    background-size: 100px 100px;
+    pointer-events: none;
+    animation: glitchEffect 12s infinite;
+}
+</style>
+
+<body>
+    <!-- Tech Grid Background -->
+    <div class="tech-grid"></div>
+    
+    <!-- Digital Rain Effect -->
+    <div class="digital-rain">
+        <div class="rain-drop" style="left: 10%; animation-delay: 0s;">01101001</div>
+        <div class="rain-drop" style="left: 20%; animation-delay: 0.5s;">11010010</div>
+        <div class="rain-drop" style="left: 30%; animation-delay: 1s;">10101100</div>
+        <div class="rain-drop" style="left: 40%; animation-delay: 1.5s;">01110110</div>
+        <div class="rain-drop" style="left: 50%; animation-delay: 2s;">11001010</div>
+        <div class="rain-drop" style="left: 60%; animation-delay: 2.5s;">01010111</div>
+        <div class="rain-drop" style="left: 70%; animation-delay: 3s;">10110101</div>
+        <div class="rain-drop" style="left: 80%; animation-delay: 3.5s;">01101011</div>
+        <div class="rain-drop" style="left: 90%; animation-delay: 4s;">11010110</div>
+    </div>
+
+    <header class="hero">
+        <div class="cyber-lines"></div>
+        <div class="header-logo">
+            <img src="logo.png" alt="Logo TOP EXCELLENCE">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Maîtrisez la <span class="highlight">DATA SCIENCE</span></h1>
+            <p class="hero-subtitle">Transformez les données en intelligence avec <strong>TOP EXCELLENCE</strong>. Devenez l'architecte des solutions de demain.</p>
+            <a href="#inscription" class="cta-button">INITIER TRANSFORMATION</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro-section" id="about">
+            <h2>Pour qui est cette formation ?</h2>
+            <div class="target-container">
+                <div class="target-card">
+                    <h3>Étudiants en Informatique</h3>
+                    <p>Pour renforcer leurs compétences analytiques et techniques.</p>
+                </div>
+                <div class="target-card">
+                    <h3>Professionnels en reconversion</h3>
+                    <p>Souhaitant se réorienter vers la Data Science, un métier d'avenir.</p>
+                </div>
+                <div class="target-card">
+                    <h3>Développeurs</h3>
+                    <p>Qui veulent évoluer vers l'IA et les métiers de la donnée.</p>
+                </div>
+                <div class="target-card">
+                    <h3>Entrepreneurs & Analystes</h3>
+                    <p>Souhaitant utiliser la donnée pour booster leur activité.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="program-section" id="program">
+            <h2>PROGRAMME FORMATION</h2>
+            <p class="section-subtitle">6 modules intensifs • Projets pratiques</p>
+            <div class="program-grid">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">M1</span>
+                    </div>
+                    <h3 class="module-title">Introduction à la Data Science</h3>
+                    <p class="module-description">Concepts, applications, compétences clés, éthique, cycle de vie projet.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">M2</span>
+                    </div>
+                    <h3 class="module-title">Initiation à l'Algèbre Linéaire</h3>
+                    <p class="module-description">Vecteurs, matrices, opérations de base, produit matriciel, valeurs propres, applications en Data Science.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">M3</span>
+                    </div>
+                    <h3 class="module-title">Python pour la Data Science</h3>
+                    <p class="module-description">Python de base, NumPy, Pandas, visualisation (Matplotlib & Seaborn).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">M4</span>
+                    </div>
+                    <h3 class="module-title">SQL pour l'Analyse de Données</h3>
+                    <p class="module-description">Bases de données relationnelles, requêtes (SELECT, JOIN, GROUP BY).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">M5</span>
+                    </div>
+                    <h3 class="module-title">Analyse Exploratoire (EDA)</h3>
+                    <p class="module-description">Nettoyage, traitement, graphiques avancés, statistiques descriptives.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">M6</span>
+                    </div>
+                    <h3 class="module-title">Machine Learning Fondamentaux</h3>
+                    <p class="module-description">Supervisé (Régression, Classification), Non supervisé (Clustering), Évaluation des modèles, Feature</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="inscription-section" id="inscription">
+            <h2>Prêt à transformer votre carrière ?</h2>
+            <p class="section-subtitle">Les places sont limitées pour garantir un suivi de qualité. Réservez la vôtre dès aujourd'hui !</p>
+            <div class="form-container">
+                <p class="form-instruction">Cliquez sur le lien ci-dessous pour remplir le formulaire d'inscription :</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQIxHbYdRtRvIi1nQHNgQZRwPtBK9Wv8U4bS8mnlMDz__TzA/viewform" target="_blank" class="google-form-button">Accéder au formulaire d'inscription</a>
+                <p class="form-help">Après soumission, notre équipe vous contactera dans les 48h.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2025 TOP EXCELLENCE - Tous droits réservés.</p>
+        <p>Téléphone : 0770 86 56 34</p>
+        <p>Email : Groupetopexcellence@gmail.com</p>
+        <div class="footer-logo-container">
+            <img src="logo.png" alt="Logo TOP EXCELLENCE">
+        </div>
+    </footer>
+
+</body>
+</html>
